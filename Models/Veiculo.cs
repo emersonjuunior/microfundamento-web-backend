@@ -16,11 +16,13 @@ namespace microfundamento_web_backend.Models
         public string Placa { get; set; }
 
         [Required(ErrorMessage = "O campo de Ano de Fabricação é obrigatório!")]
+        [Display(Name = "Ano de Fabricação")]
         public int AnoFabricacao { get; set; }
 
         [Required(ErrorMessage = "O campo de Ano do Modelo é obrigatório!")]
+        [Display(Name = "Ano do Modelo")]
         public int AnoModelo { get; set; }
-        public int AnoServicio { get; set; }
+        public string AnoServicio { get; set; }
 
     }
 }
