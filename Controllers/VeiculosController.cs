@@ -42,7 +42,7 @@ namespace microfundamento_web_backend.Controllers
 
             var dados = await _context.Veiculos.FindAsync(id);
 
-            if(dados == null)
+            if (dados == null)
                 return NotFound();
 
             return View(dados);
@@ -57,12 +57,27 @@ namespace microfundamento_web_backend.Controllers
             if (ModelState.IsValid)
             {
                 _context.Veiculos.Update(veiculo);
-         
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
             return View();
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            var dados = await _context.Veiculos.FindAsync(id);
+
+            if(dados == null)
+            {
+                return NotFound();
+            }
+
+            return View(dados);
         }
     }
 }
