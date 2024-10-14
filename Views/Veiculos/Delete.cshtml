@@ -1,11 +1,12 @@
 ﻿@model microfundamento_web_backend.Models.Veiculo
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
 }
 
-<h1>Visualizando Veículo</h1>
+<h1>Apagar Veículo</h1>
 
+<h3>Você tem certeza que deseja apagar esse veículo?</h3>
 <div>
     <h4>Veículo</h4>
     <hr />
@@ -35,8 +36,10 @@
             @Html.DisplayFor(model => model.AnoModelo)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model?.Id">Editar</a> 
-    <a class="btn btn-info" asp-action="Index">Voltar</a>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Apagar Veículo" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-info">Voltar</a>
+    </form>
 </div>
