@@ -22,5 +22,7 @@ namespace microfundamento_web_backend.Models
         [Required(ErrorMessage = "O campo de Ano do Modelo é obrigatório!")]
         [Display(Name = "Ano do Modelo")]
         public int AnoModelo { get; set; }
+
+        public ICollection<Consumo> Consumos { get; set; }
     }
 }
